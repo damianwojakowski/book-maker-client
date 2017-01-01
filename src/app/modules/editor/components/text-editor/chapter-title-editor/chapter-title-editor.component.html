@@ -1,0 +1,11 @@
+<div *ngIf="shouldShowChapterTitle">
+    <h2>Chapter: {{ getCurrentChapterTitle() }} <small><a class="link link--light-blue" (click)="showChangeChapterTitleForm()">(edit)</a></small></h2>
+</div>
+
+<div *ngIf="shouldShowChapterTitleEditForm">
+    <h2>
+        Chapter: <input class="change-value" name="chapter-title" [(ngModel)]="newChapterTitle">
+        <button (click)="saveNewChapterTitle()">Save</button>
+        <button (click)="cancelNewChapterTitle()">Cancel</button>
+    </h2>
+</div>

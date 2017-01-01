@@ -1,0 +1,26 @@
+<div class="text-editor__wrapper">
+
+    <button (click)="bold($event)">Bold</button>
+    <button (click)="fontSize($event)">Font</button>
+    <select [(ngModel)]="selectedFont" id="font-sizes">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+    </select>
+
+    <button class="btn btn-default" (click)="saveBook($event)">Save Text</button>
+    <br>
+    <div #dataContainer
+         class="text-editor"
+         contenteditable="true"
+         (input)="updateValue()">
+    </div>
+    <br>
+    <div>
+        words: {{words}}
+    </div>
+</div>

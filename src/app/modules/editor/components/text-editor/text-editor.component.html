@@ -1,0 +1,14 @@
+<book-title-editor></book-title-editor>
+
+<chapters-list
+        (chapterEdited)="editChapter($event)"
+        (chapterDeleted)="deleteChapter($event)"
+        (saveBook)="saveBookInRepository()">
+</chapters-list>
+
+<chapter-title-editor
+        [shouldShowChapterTitle]="shouldShowChapterTitle"
+        [shouldShowChapterTitleEditForm]="shouldShowChapterTitleEditForm">
+</chapter-title-editor>
+
+<text-editor *ngIf="shouldShowChapterTitle"></text-editor>

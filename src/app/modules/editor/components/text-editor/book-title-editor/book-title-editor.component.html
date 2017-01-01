@@ -1,0 +1,11 @@
+<div *ngIf="shouldShowTitle">
+    <h2>Book: {{ getBookTitle() }} <small><a class="link link--light-blue" (click)="showChangeBookTitleForm()">(edit)</a></small> <button (click)="print()">Print</button></h2>
+</div>
+
+<div *ngIf="shouldShowChangeTitle">
+    <h2>
+        Book: <input class="change-value" name="book-title" [(ngModel)]="newTitle">
+        <button (click)="saveNewBookTitle()">Save</button>
+        <button (click)="cancelNewBookTitle()">Cancel</button>
+    </h2>
+</div>

@@ -1,0 +1,56 @@
+<h1>Your Books:</h1>
+
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Number</th>
+                <th>Book Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let book of books; let i = index">
+                <td>
+                    {{ i + 1 }}
+                </td>
+                <td>
+                    <span (click)="onSelect(book.id)" class="glyphicon glyphicon-pencil" aria-hidden="true">edit</span>
+                    {{ book.title}}
+                </td>
+                <td>
+                    <button class="btn btn-default" (click)="exportBook(book)">
+                        <span class="glyphicon glyphicon-floppy-save" aria-hidden="true"></span>
+                        export as file
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<button class="btn btn-default" (click)="showTitle()">
+    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+    create book
+</button>
+
+<button class="btn btn-default" (click)="loadBookFromFile()">
+    <span class="glyphicon glyphicon-floppy-open" aria-hidden="true"></span>
+    load book from file
+</button>
+<br>
+
+<div *ngIf="shouldShowLoadingFileForm">
+    <h3>Load File:</h3>
+    <input (change)="loadFile($event)" type="file" id="files" name="file" />
+</div>
+
+<div *ngIf="shouldShow">
+    <h3>Title: {{bookTitle}}</h3>
+
+    <input type="text" [(ngModel)]="bookTitle" />
+
+    <button (click)="createBook()">create new book</button>
+</div>
+
+

@@ -1,0 +1,27 @@
+.text-editor__wrapper {
+    background-color: lightgoldenrodyellow;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.text-editor {
+    border: solid 1px black;
+    max-height: 400px;
+    min-height: 300px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background-color: whitesmoke;
+}
+
+.change-value {
+    width: 50%;
+}
+
+.link {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.link--light-blue {
+    color: dodgerblue;
+}
