@@ -119,4 +119,26 @@ describe('BookManager', () => {
             expect(bookManagerService.getCurrentBook().getAllChapters()).toEqual([chapter2]);
     }));
 
+    it('should be able to get book short description from a book',
+        inject([ BookManagerService ],
+            (bookManagerService: BookManagerService) => {
+
+                let bookDescription = 'Some unique description@wqerqwer';
+                let book = new BookModel({id: 1, shortDescription: bookDescription, chapters: []});
+
+                bookManagerService.setCurrentBook(book);
+                expect(bookManagerService.getCurrentBookShortDescription()).toEqual(bookDescription);
+    }));
+
+    it('should be able to set short description for a book', inject([ BookManagerService ],
+        (bookManagerService: BookManagerService) => {
+            let book = new BookModel({id: 1});
+            let shortDescription = 'Some book description 1231412#'
+
+            bookManagerService.setCurrentBook(book);
+            bookManagerService.setCurrentBookShortDescription(shortDescription);
+
+            expect(bookManagerService.getCurrentBook().getShortDescription()).toEqual(shortDescription);
+    }));
+
 });

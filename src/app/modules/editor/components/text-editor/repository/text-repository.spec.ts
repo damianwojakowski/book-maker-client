@@ -3,8 +3,8 @@ import {
     TestBed
 } from '@angular/core/testing';
 
-import { BooksRepository } from './text-repository.service.ts';
-import { LocalStorageDriver } from './local-storage-driver.service.ts';
+import { BooksRepository } from './text-repository.service';
+import { LocalStorageDriver } from './local-storage-driver.service';
 
 describe('BooksRepository', () => {
 

@@ -1,13 +1,15 @@
 import { BookChapterModel } from './chapter.model';
 
 export class BookModel {
-    private title: string;
     private id: string;
+    private title: string;
+    private shortDescription: string;
     private chapters: Array<BookChapterModel> = [];
 
     constructor(plainTextObject) {
-        this.title = plainTextObject.title ? plainTextObject.title : '';
         this.id = plainTextObject.id ? plainTextObject.id : '';
+        this.title = plainTextObject.title ? plainTextObject.title : '';
+        this.shortDescription = plainTextObject.shortDescription ? plainTextObject.shortDescription : '';
         this.chapters = plainTextObject.chapters &&  plainTextObject.chapters.length ?
             this.makeChapters(plainTextObject.chapters) : [];
     }
@@ -71,6 +73,15 @@ export class BookModel {
             this.chapters[chapterIndex + 1] = currentChapter;
         }
     }
+
+    getShortDescription(): string {
+        return this.shortDescription;
+    }
+
+    setShortDescription(shortDescription: string) {
+        this.shortDescription = shortDescription;
+    }
+
 
     private makeChapters(chapters) {
         return chapters.map((chapter) => {

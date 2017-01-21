@@ -92,4 +92,12 @@ export class BookManagerService {
     getAllChapters(): Array<BookChapterModel> {
         return this.getCurrentBook().getAllChapters();
     }
+
+    getCurrentBookShortDescription() {
+        return this.getCurrentBook().getShortDescription();
+    }
+
+    setCurrentBookShortDescription(shortDescription: string): void {
+        this.getCurrentBook().setShortDescription(shortDescription);
+    }
 }
