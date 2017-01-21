@@ -40,7 +40,8 @@ export class BooksRepository {
         this.localStorageDriver.updateBook(
             book.getId(),
             book.getTitle(),
-            book.getAllChapters()
+            book.getAllChapters(),
+            book.getShortDescription()
         );
     }
 
@@ -48,7 +49,8 @@ export class BooksRepository {
         this.localStorageDriver.updateOrAddNewBookIfNotFound(
             book.getId(),
             book.getTitle(),
-            book.getAllChapters()
+            book.getAllChapters(),
+            book.getShortDescription()
         );
     }
 }

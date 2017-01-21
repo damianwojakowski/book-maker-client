@@ -39,7 +39,7 @@ export class LocalStorageDriver {
         this.updateAllBooks(books);
     }
 
-    updateBook(id, title, chapters) {
+    updateBook(id, title, chapters, shortDescription) {
         let books = this.getAllBooks();
 
         books.forEach((book, index, array) => {
@@ -47,7 +47,8 @@ export class LocalStorageDriver {
                 let newBook = {
                     id: id,
                     title: title,
-                    chapters: chapters
+                    chapters: chapters,
+                    shortDescription: shortDescription
                 };
                 array[index] = newBook;
             }
@@ -56,14 +57,15 @@ export class LocalStorageDriver {
         this.updateAllBooks(books);
     }
 
-    updateOrAddNewBookIfNotFound(id, title, chapters) {
+    updateOrAddNewBookIfNotFound(id, title, chapters, shortDescription) {
         let books = this.getAllBooks();
         let booksFound = false;
 
         let newBook = {
             id: id,
             title: title,
-            chapters: chapters
+            chapters: chapters,
+            shortDescription: shortDescription
         };
 
         books.forEach((book, index, array) => {
